@@ -11,8 +11,6 @@ const Home = () => {
     fetchAllProducts();
   }, [fetchAllProducts]);
 
-  console.log(products);
-
   if (!products) return <div>Loading...</div>;
 
   return (
@@ -20,10 +18,9 @@ const Home = () => {
       <Grid templateColumns="repeat(3, 1fr)">
         {products.map((product) => (
           <Link to={`/products/${product.handle}`} key={product.id}>
-            <Box _hover={{ opacity: "80%" }} textAlign="center">
+            <Box _hover={{ opacity: '80%' }} textAlign="center">
               <Image src={product.images[0].src} />
               <Text>{product.title}</Text>
-              <Text>${product.variants[0].price}</Text>
             </Box>
           </Link>
         ))}
